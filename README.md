@@ -1,28 +1,11 @@
-# Adonis API application
+# Adonis API airbnb clone
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+API de uma aplicação que imita o airbnb. É possível navegar pelo mapa, visualizar anúncios de imóveis e criar o próprio anuncio, com upload de imagens. Autenticação com JWT
 
 ## Setup
 
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick --api-only
-```
-
-or manually clone the repo and then run `npm install`.
-
+Use o comando `npm install` para instalar as dependencias e em seguida o comando `adonis serve --dev` para rodar em ambiente de desenvolvimento
 
 ### Migrations
 
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+Use o comando `adonis migration:run` para rodar as migrations e criar as tabelas
