@@ -7,9 +7,14 @@ class UserController {
   async create({ request, response }) {
     const data = request.only(["username", "email", "password"]);
 
-    const user = await User.create(data);
+    try {
+      const user = await User.create(data);
 
-    return user;
+      return response.status(201).send(user);
+    } catch (err) {
+      console.log(err);
+      return response.status(400).send({ error: "Unable to register" });
+    }
   }
 
   async indexProperties({ auth }) {
