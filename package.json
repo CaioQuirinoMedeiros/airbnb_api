@@ -1,6 +1,7 @@
 {
   "name": "airbnb_api",
   "version": "4.1.0",
+  "author": "Caio Quirino",
   "adonis-version": "4.1.0",
   "description": "Adonisjs API clone of airbnb",
   "main": "index.js",
@@ -12,7 +13,6 @@
     "adonisjs",
     "adonis-app"
   ],
-  "author": "",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
