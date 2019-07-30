@@ -15,8 +15,8 @@ class PropertyController {
 
     const query = Property.query();
 
-    if (max_price) query.where("price", "<", max_price);
-    if (min_price) query.where("price", ">", min_price);
+    if (max_price) query.where("price", "<=", max_price);
+    if (min_price) query.where("price", ">=", min_price);
 
     const properties = query
       .with("images")
@@ -26,10 +26,6 @@ class PropertyController {
     return properties;
   }
 
-  /**
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   */
   async store({ request, auth }) {
     const { id } = auth.user;
 
@@ -47,12 +43,6 @@ class PropertyController {
     return property;
   }
 
-  /**
-   * Display a single property.
-   * GET properties/:id
-   *
-   * @param {object} ctx
-   */
   async show({ params }) {
     const property = await Property.findOrFail(params.id);
 
@@ -61,14 +51,6 @@ class PropertyController {
     return property;
   }
 
-  /**
-   * Update property details.
-   * PUT or PATCH properties/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
   async update({ params, request, response, auth }) {
     const data = request.only([
       "title",
@@ -92,14 +74,6 @@ class PropertyController {
     return property;
   }
 
-  /**
-   * Delete a property with id.
-   * DELETE properties/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
   async destroy({ params, auth, response }) {
     const property = await Property.findOrFail(params.id);
 
